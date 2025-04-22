@@ -1,1 +1,21 @@
-"NEW FILE" 
+
+import google.generativeai as genai
+
+# Replace this with your actual API key
+genai.configure(api_key='AIzaSyD1AGHgfhUqFA-B2qvhZE8mbE-RuGi4q90')
+
+model = genai.GenerativeModel('gemini-1.5-pro')
+
+print("Type 'exit' to quit")
+
+while True:
+    user_input = input("You:  ")
+    
+    if user_input.lower() == 'exit':
+        break
+    
+    response = model.generate_content(user_input)
+    
+    print("\nGemu: " + response.text + "\n")
+
+print("Chat session ended.")
